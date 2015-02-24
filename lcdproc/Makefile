@@ -20,13 +20,15 @@ include $(INCLUDE_DIR)/package.mk
 define Package/lcdproc
   SECTION:=utils
   CATEGORY:=Utilities
-  DEPENDS:=+libusb-compat +libncurses +libftdi
+#  DEPENDS:=+libusb-compat +libncurses +libftdi
+  DEPENDS:=
   TITLE:=LCD Display daemon and client
   URL:=http://sourceforge.net/projects/lcdproc/
 endef
 
 define Package/lcdproc/description
  LCDProc is a daemon and client for displaying system information on various displays.
+ This package contains only serialVFD driver.
 endef
 
 define Package/lcdproc/conffiles
@@ -37,7 +39,8 @@ define Package/lcdproc/conffiles
 endef
 
 define Build/Configure
-	$(call Build/Configure/Default,--enable-drivers=all)
+#	$(call Build/Configure/Default,--enable-drivers=all)
+	$(call Build/Configure/Default,--enable-drivers=serialVFD)
 endef
 
 define Package/lcdproc/install
