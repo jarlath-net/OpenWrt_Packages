@@ -21,7 +21,7 @@ define Package/lcdproc
   SECTION:=utils
   CATEGORY:=Utilities
 #  DEPENDS:=+libusb-compat +libncurses +libftdi
-  DEPENDS:= +libusb-compat +libncurses
+  DEPENDS:= +libncurses
   TITLE:=LCD Display daemon and client
   URL:=http://sourceforge.net/projects/lcdproc/
 endef
