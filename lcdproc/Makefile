@@ -7,12 +7,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=lcdproc
-PKG_VERSION:=0.5.6
+PKG_VERSION:=0.5.7
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=@SF/lcdproc
-PKG_MD5SUM:=df4f5c2c7285eaf6979b9c7768b4877f
+PKG_MD5SUM:=2f8e064233ef1d03e98c0b426595750d
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -21,7 +21,7 @@ define Package/lcdproc
   SECTION:=utils
   CATEGORY:=Utilities
 #  DEPENDS:=+libusb-compat +libncurses +libftdi
-  DEPENDS:= +libusb +libncurses
+  DEPENDS:=+libncurses
   TITLE:=LCD Display daemon and client
   URL:=http://sourceforge.net/projects/lcdproc/
 endef
@@ -39,8 +39,8 @@ define Package/lcdproc/conffiles
 endef
 
 define Build/Configure
-	$(call Build/Configure/Default,--enable-drivers=all)
-#	$(call Build/Configure/Default,--enable-drivers=serialVFD)
+#	$(call Build/Configure/Default,--enable-drivers=all)
+	$(call Build/Configure/Default,--enable-drivers=serialVFD)
 endef
 
 define Package/lcdproc/install
