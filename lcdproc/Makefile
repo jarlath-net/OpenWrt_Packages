@@ -21,7 +21,7 @@ define Package/lcdproc
   SECTION:=utils
   CATEGORY:=Utilities
 #  DEPENDS:=+libusb-compat +libncurses +libftdi
-  DEPENDS:= +libncurses
+  DEPENDS:= +libusb +libncurses
   TITLE:=LCD Display daemon and client
   URL:=http://sourceforge.net/projects/lcdproc/
 endef
@@ -39,8 +39,8 @@ define Package/lcdproc/conffiles
 endef
 
 define Build/Configure
-#	$(call Build/Configure/Default,--enable-drivers=all)
-	$(call Build/Configure/Default,--enable-drivers=serialVFD)
+	$(call Build/Configure/Default,--enable-drivers=all)
+#	$(call Build/Configure/Default,--enable-drivers=serialVFD)
 endef
 
 define Package/lcdproc/install
